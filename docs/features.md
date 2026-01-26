@@ -12,7 +12,7 @@
 - [Plugins](#plugins)
 
 > Want to create your own plugin?  
-> See: **[How to create plugins](https://github.com/builtbybel/CrapFixer/blob/main/plugins/DemoPluginPack.ps1)**.
+> See: **[How to create plugins](https://github.com/builtbybel/Winslop/blob/main/docs/plugins.md)**.
 
 ---
 
