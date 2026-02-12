@@ -13,7 +13,7 @@ Quick links:
 2. Use the **tabs** to switch between areas:
    - **Windows**: system tweaks (feature tree)
    - **Applications**: app scan/uninstall (if enabled in your build)
-   - **Extensions**: additional modules/extensions
+   - **Tools**: additional modules/extensions
 
 3. Use **Inspect system** to scan/analyze.
 4. Select the tweaks you want (checkboxes).
@@ -26,20 +26,20 @@ Quick links:
 <img width="1031" height="880" alt="Winslop_annotated_outside_EN_v3" src="https://github.com/user-attachments/assets/f661f0ee-b87b-401e-9121-f48addc38fe3" />
 
 ### Top bar
-- **Menu button (☰)**  
+- **Start button (☰)**  
   Opens the main menu (selection actions, import/export, plugins, etc. depending on your build).
 - **Search**  
   Filters the current view (e.g., feature tree).  
   Tip: clear the search to show all items again.
-- **Heart button (❤)**  
-  About this app and versioning information
+- **Refresh**  
+Updates the view and clears the log in the log window.
 
 ### Tabs
 - **Windows**  
   Shows the feature/plugin tree. Items are grouped (e.g., *Issues*, *System*, *MS Edge*, *Privacy*…).
 - **Applications**  
   Scans installed apps and allows uninstalling selected ones (if present).
-- **Extensions**  
+- **Tools**  
   Hosts extension views/modules.
 
 ### Feature tree (Windows tab)
