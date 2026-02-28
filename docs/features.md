@@ -251,7 +251,7 @@
 **Undo:** `1`
 
 ### Hide search box on taskbar
-**Supported on:** Windows 10, Windows 11  
+**Supported on:** Windows 11  
 **Info:** Hides the search box / search entry on the taskbar.  
 **Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search`  
 **Value:** `SearchboxTaskbarMode`  
@@ -259,7 +259,7 @@
 **Undo:** `2`
 
 ### Hide Task view button on taskbar
-**Supported on:** Windows 10, Windows 11  
+**Supported on:** Windows 11  
 **Info:** Hides the Task View button on the taskbar.  
 **Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced`  
 **Value:** `ShowTaskViewButton`  
@@ -283,7 +283,7 @@
 **Undo:** `0`
 
 ### Always show all system tray icons
-**Supported on:** Windows 10, Windows 11  
+**Supported on:** Windows 10
 **Info:** Shows all notification area (system tray) icons instead of hiding some behind the overflow menu.  
 **Registry:** `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer`  
 **Value:** `EnableAutoTray`  
