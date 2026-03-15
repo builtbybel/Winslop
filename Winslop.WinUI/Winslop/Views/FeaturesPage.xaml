@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Winslop.Views.FeaturesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Winslop"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    NavigationCacheMode="Required"
+    Background="Transparent">
+
+    <Page.Resources>
+        <local:BoolToFontWeightConverter x:Key="BoolToFontWeightConverter" />
+        <local:StatusToBrushConverter x:Key="StatusToBrushConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Profile Selector-->
+        <ComboBox x:Name="comboProfiles" Grid.Row="0" HorizontalAlignment="Stretch"
+                  x:Uid="ComboProfiles" FontSize="12" Height="30"
+                  Margin="0,0,0,4" />
+
+        <!-- Filter: show only items that need fixing -->
+        <CheckBox x:Name="chkIssuesOnly" Grid.Row="1" x:Uid="ChkIssuesOnly"
+                  Margin="0,0,0,4" IsEnabled="False"
+                  Checked="chkIssuesOnly_Changed" Unchecked="chkIssuesOnly_Changed" />
+
+        <Border Grid.Row="2"
+                BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}"
+                BorderThickness="0" CornerRadius="4" Padding="4">
+
+            <!-- NOTE: ScrollViewer with ZoomMode=Enabled was intentionally aDDED.
+         It forced the entire TreeView to layout at once, disabling virtualization
+         and causing noticeable startup lag-->
+            
+            <ScrollViewer ZoomMode="Enabled"
+                  MinZoomFactor="0.5"
+                  MaxZoomFactor="2.0"
+                  HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto">
+                
+                <TreeView x:Name="treeFeatures" SelectionMode="None" RightTapped="treeFeatures_RightTapped">
+                <TreeView.ItemTemplate>
+                    <DataTemplate x:DataType="local:FeatureTreeItem">
+                        <TreeViewItem ItemsSource="{x:Bind Children}" 
+                                          IsExpanded="True"
+                                          Visibility="{x:Bind NodeVisibility, Mode=OneWay}">
+                            <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{x:Bind IsChecked, Mode=TwoWay}"
+                                          IsEnabled="{x:Bind IsApplicableOnOS}"
+                                          MinWidth="0" MinHeight="0" Padding="4,0,0,0" />
+
+                                    <!-- Foreground is driven by AnalysisStatus.
+                                     The converter returns fixed colors for special states and
+                                     a theme-aware default brush for normal nodes. !NOT ANYMORE! FIX!! -->                
+                                    <TextBlock Text="{x:Bind Name}"
+                                           VerticalAlignment="Center"
+                                           FontSize="12"
+                                           FontWeight="{x:Bind IsCategory, Converter={StaticResource BoolToFontWeightConverter}}"
+                                           Foreground="{x:Bind Status, Mode=OneWay, Converter={StaticResource StatusToBrushConverter}}" />
+                                    <TextBlock Text="{x:Bind ApplicabilityText}" VerticalAlignment="Center"
+                                           Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"
+                                           FontSize="11" Margin="6,0,0,0" />
+                            </StackPanel>
+                        </TreeViewItem>
+                    </DataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+            </ScrollViewer>
+        </Border>
+
+    </Grid>
+</Page>
