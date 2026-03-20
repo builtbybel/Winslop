@@ -59,12 +59,22 @@
   <data name="MenuPaypal.Text"><value>Faire un don via PayPal</value></data>
 
   <!-- ============================================================ -->
-  <!-- XAML x:Uid: MainWindow — Settings flyout                     -->
+  <!-- XAML x:Uid: SettingsPage                                      -->
   <!-- ============================================================ -->
-  <data name="MenuManagePlugins.Text"><value>Gérer les plugins</value></data>
-  <data name="MenuCheckUpdates.Text"><value>Vérifier les mises à jour</value></data>
+  <data name="Settings_Title.Text"><value>Paramètres</value></data>
+  <data name="Settings_Language.Text"><value>Langue</value></data>
+  <data name="Settings_Appearance.Text"><value>Apparence</value></data>
+  <data name="Settings_ThemeSystem"><value>Utiliser le param&#232;tre syst&#232;me</value></data>
+  <data name="Settings_ThemeLight"><value>Clair</value></data>
+  <data name="Settings_ThemeDark"><value>Sombre</value></data>
+  <data name="Settings_RestartTitle"><value>Red&#233;marrage requis</value></data>
+  <data name="Settings_RestartMessage"><value>Veuillez red&#233;marrer l'application pour appliquer le changement.</value></data>
+  <data name="Settings_Plugins.Text"><value>Plugins</value></data>
+  <data name="Settings_ManagePlugins.Text"><value>Gérer les plugins</value></data>
+  <data name="Settings_About.Text"><value>À propos de cette application</value></data>
+  <data name="Settings_CheckUpdates.Text"><value>Vérifier les mises à jour</value></data>
+  <data name="Settings_Feedback.Text"><value>Envoyer des commentaires</value></data>
   <data name="MenuHelp.Text"><value>Aide</value></data>
-  <data name="MenuLanguage.Text"><value>Langue</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: MainWindow — Search & More options menu           -->
@@ -280,6 +290,20 @@
   <data name="Log_SkippedRestore"><value>Restauration ignorée</value></data>
   <data name="Log_ProperlyConfigured"><value>Fonctionnalité : {0} est correctement configurée.</value></data>
   <data name="Log_RequiresAttention"><value>Fonctionnalité : {0} nécessite une attention.</value></data>
+  <data name="Summary_Fix"><value>{0} corrigé(s), {1} ignoré(s), {2} échoué(s)</value></data>
+  <data name="Summary_FixTitleDone"><value>Modifications appliquées</value></data>
+  <data name="Summary_FixTitleWarning"><value>Modifications appliquées avec des erreurs</value></data>
+  <data name="Summary_Fixed"><value>Corrigé</value></data>
+  <data name="Summary_Skipped"><value>Ignoré</value></data>
+  <data name="Summary_Failed"><value>Échoué</value></data>
+  <data name="Summary_FixAllGood"><value>Toutes les modifications sélectionnées ont été appliquées avec succès.</value></data>
+  <data name="Summary_FixHasErrors"><value>Certaines modifications n'ont pas pu être appliquées. Consultez le journal pour plus de détails.</value></data>
+  <data name="Summary_Restore"><value>{0} restauré(s), {1} ignoré(s), {2} échoué(s)</value></data>
+  <data name="Summary_RestoreTitleDone"><value>Restauration terminée</value></data>
+  <data name="Summary_RestoreTitleWarning"><value>Restauration terminée avec des erreurs</value></data>
+  <data name="Summary_Restored"><value>Restauré</value></data>
+  <data name="Summary_RestoreAllGood"><value>Toutes les fonctionnalités sélectionnées ont été restaurées avec succès.</value></data>
+  <data name="Summary_RestoreHasErrors"><value>Certaines fonctionnalités n'ont pas pu être restaurées. Consultez le journal pour plus de détails.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Analysis summary (FeaturesPage.xaml.cs)    -->
@@ -337,7 +361,6 @@ Voulez-vous continuer ?</value></data>
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Apps log messages (AppsPage.xaml.cs)       -->
   <!-- ============================================================ -->
-  <data name="Apps_Scanning"><value>Analyse des applications installées, veuillez patienter...</value></data>
   <data name="Apps_DisplayAll"><value>Affichage de toutes les applications installées.</value></data>
   <data name="Apps_NoPlugin"><value>Aucune liste de plugins trouvée. Installez CFEnhancer pour utiliser les recommandations de plugins.</value></data>
   <data name="Apps_DisplayPlugin"><value>Affichage des recommandations de plugins (CFEnhancer).</value></data>

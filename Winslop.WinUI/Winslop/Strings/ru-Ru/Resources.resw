@@ -337,7 +337,6 @@
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Apps log messages (AppsPage.xaml.cs)       -->
   <!-- ============================================================ -->
-  <data name="Apps_Scanning"><value>Сканирование установленных приложений, подождите...</value></data>
   <data name="Apps_DisplayAll"><value>Показаны все установленные приложения.</value></data>
   <data name="Apps_NoPlugin"><value>Список плагинов не найден. Установите CFEnhancer для использования рекомендаций плагинов.</value></data>
   <data name="Apps_DisplayPlugin"><value>Показаны рекомендации плагинов (CFEnhancer).</value></data>

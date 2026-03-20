@@ -9,222 +9,211 @@
     NavigationCacheMode="Disabled"
     Background="Transparent">
 
-    <Grid Padding="16,8,16,16">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid Padding="16,8,16,16" RowDefinitions="Auto,*">
 
-        <!-- Title -->
         <TextBlock Grid.Row="0"
                    x:Uid="Settings_Title"
                    FontSize="22"
                    FontWeight="SemiBold"
-                   Margin="0,0,0,16"
-                   HorizontalAlignment="Left"/>
+                   Margin="0,0,0,16" />
 
-        <!-- Scrollable content area -->
         <ScrollViewer Grid.Row="1"
                       VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Disabled"
-                      HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch">
+                      HorizontalScrollBarVisibility="Disabled">
 
-            <!-- Main content grid -->
-                <Grid HorizontalAlignment="Left"
-                  MaxWidth="520">
-                <StackPanel Spacing="18"
-                            HorizontalAlignment="Left">
+            <StackPanel Spacing="18" MaxWidth="520" HorizontalAlignment="Left">
 
-                    <!-- Language -->
-                    <StackPanel Spacing="8"
-                                HorizontalAlignment="Left">
-                        <TextBlock x:Uid="Settings_Language"
-                                   FontSize="14"
-                                   FontWeight="SemiBold"
-                                   HorizontalAlignment="Left"/>
-                        <ComboBox x:Name="cboLanguage"
-                                  MinWidth="240"
-                                  MaxWidth="320"
-                                  HorizontalAlignment="Left"
-                                  SelectionChanged="CboLanguage_SelectionChanged"/>
-                    </StackPanel>
-                    
-                    <!-- Extensions -->
-                    <Expander
-                        Width="520"
-                        HorizontalAlignment="Left"
-                        IsExpanded="False">
+                <!-- Language -->
+                <Expander HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"
+                          IsExpanded="False">
 
-                        <Expander.Header>
-                            <Grid
-                                Padding="0,12,0,12"
-                                ColumnSpacing="12">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-                                <!-- Header icon -->
-                                <FontIcon
-                                    Grid.Column="0"
-                                    Glyph="&#xEA86;"
-                                    FontSize="16"
-                                    VerticalAlignment="Center" />
-
-                                <!-- Header text -->
-                                <StackPanel
-                                    Grid.Column="1"
-                                    Spacing="3">
-                                    <TextBlock
-                                        x:Uid="Settings_Extensions"
-                                        FontSize="13"
-                                        FontWeight="SemiBold"
-                                        HorizontalAlignment="Left" />
-                                    <TextBlock
-                                        x:Uid="Settings_ExtensionsSubtext"
-                                        FontSize="12"
-                                        Opacity="0.75"
-                                        TextWrapping="WrapWholeWords"
-                                        HorizontalAlignment="Left" />
-                                </StackPanel>
-                            </Grid>
-                        </Expander.Header>
-
-                        <Grid Margin="0,12,0,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="1"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-
-                            <!-- Plugins -->
-                            <Grid Grid.Row="0"
-                                  ColumnSpacing="16"
-                                  Padding="0,0,0,14">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-
-                                <StackPanel Grid.Column="0"
-                                               Spacing="4"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Left">
-                                    <TextBlock x:Uid="Settings_Plugins"
-                                               FontSize="13"
-                                               FontWeight="SemiBold"
-                                               TextWrapping="WrapWholeWords"/>
-                                    <TextBlock x:Uid="Settings_PluginsDescription"
-                                               FontSize="12"
-                                               Opacity="0.75"
-                                               TextWrapping="WrapWholeWords"/>
-                                </StackPanel>
-
-                                <Button Grid.Column="1"
-                                        Click="BtnPlugins_Click"
-                                        Padding="12,8"
-                                        CornerRadius="4"
-                                        MinWidth="140"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center">
-                                    <TextBlock x:Uid="Settings_ManagePlugins"
-                                               FontSize="12"
-                                               TextAlignment="Center"
-                                               TextWrapping="WrapWholeWords"/>
-                                </Button>
-                            </Grid>
-
-                            <Border Grid.Row="1"
-                                    Height="1"
-                                    Background="{ThemeResource ControlStrokeColorSecondaryBrush}"/>
-
-                            <!-- Tools -->
-                            <Grid Grid.Row="2"
-                                  ColumnSpacing="16"
-                                  Padding="0,14,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-
-                                <StackPanel Grid.Column="0"
-                                            Spacing="4"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Left">
-                                    <TextBlock x:Uid="Settings_ToolScripts"
-                                               FontSize="13"
-                                               FontWeight="SemiBold"
-                                               TextWrapping="WrapWholeWords"/>
-                                    <TextBlock x:Uid="Settings_ToolScriptsDescription"
-                                               FontSize="12"
-                                               Opacity="0.75"
-                                               TextWrapping="WrapWholeWords"/>
-                                </StackPanel>
-
-                                <Button Grid.Column="1"
-                                        Click="BtnTools_Click"
-                                        Padding="12,8"
-                                        CornerRadius="4"
-                                        MinWidth="140"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center">
-                                    <TextBlock x:Uid="Settings_OpenToolsPage"
-                                               FontSize="12"
-                                               TextAlignment="Center"
-                                               TextWrapping="WrapWholeWords"/>
-                                </Button>
-                            </Grid>
+                    <Expander.Header>
+                        <Grid Padding="0,12" ColumnSpacing="12"
+                              ColumnDefinitions="Auto,*">
+                            <FontIcon Grid.Column="0"
+                                      Glyph="&#xF2B7;" FontSize="16"
+                                      VerticalAlignment="Center" />
+                            <StackPanel Grid.Column="1" Spacing="3">
+                                <TextBlock x:Uid="Settings_Language"
+                                           FontSize="13" FontWeight="SemiBold" />
+                                <TextBlock x:Uid="Settings_LanguageSubtext"
+                                           FontSize="12" Opacity="0.75"
+                                           TextWrapping="WrapWholeWords" />
+                            </StackPanel>
                         </Grid>
-                    </Expander>
+                    </Expander.Header>
 
-                    <!-- About -->
-                    <StackPanel Spacing="10"
-                                HorizontalAlignment="Left">
-                        <TextBlock x:Uid="Settings_About"
-                                   FontSize="14"
-                                   FontWeight="SemiBold"/>
-                        <TextBlock x:Name="txtVersion"
-                                   FontSize="13"
-                                   Opacity="0.9"/>
-                        <TextBlock Text="by Belim"
-                                   FontSize="12"
-                                   Opacity="0.8"
-                                   Margin="0,-4,0,0"/>
+                    <StackPanel Margin="0,12,0,0" Spacing="12">
 
-                        <HyperlinkButton Click="BtnGitHub_Click"
-                                         Padding="0"
-                                         HorizontalAlignment="Left">
-                            <TextBlock Text="GitHub" FontSize="13"/>
-                        </HyperlinkButton>
+                        <!-- Language selector -->
+                        <ComboBox x:Name="cboLanguage"
+                                  MinWidth="240" MaxWidth="320"
+                                  SelectionChanged="CboLanguage_SelectionChanged" />
 
-                        <HyperlinkButton Click="BtnUpdates_Click"
-                                         Padding="0"
-                                         HorizontalAlignment="Left">
-                            <TextBlock x:Uid="Settings_CheckUpdates" FontSize="13"/>
-                        </HyperlinkButton>
+                        <Border Height="1"
+                                Background="{ThemeResource ControlStrokeColorSecondaryBrush}" />
 
-                        <HyperlinkButton Click="BtnHelp_Click"
-                                         Padding="0"
-                                         HorizontalAlignment="Left">
-                            <TextBlock x:Uid="MenuHelp" FontSize="13"/>
-                        </HyperlinkButton>
+                        <!-- Translator credits -->
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                            <StackPanel Grid.Column="0" Spacing="2" VerticalAlignment="Center">
+                                <TextBlock x:Uid="Settings_TranslatedBy"
+                                           FontSize="12" FontWeight="SemiBold" />
+                                <HyperlinkButton x:Name="lnkTranslator"
+                                                 Padding="0" FontSize="12" />
+                            </StackPanel>
+                            <!-- Never translated — always English -->
+                            <HyperlinkButton Grid.Column="1"
+                                             Content="Become a translator"
+                                             NavigateUri="https://github.com/builtbybel/Winslop/blob/main/Winslop.WinUI/Winslop/Strings/LOCALIZATION.md"
+                                             FontSize="12" VerticalAlignment="Center" />
+                        </Grid>
 
-                        <Button Click="BtnFeedback_Click"
-                                HorizontalAlignment="Left"
-                                MinWidth="180"
-                                Padding="10,8"
-                                CornerRadius="4"
-                                BorderThickness="1"
-                                BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}">
-                            <TextBlock x:Uid="Settings_Feedback"
-                                       FontSize="13"
-                                       TextWrapping="WrapWholeWords"/>
-                        </Button>
                     </StackPanel>
+                </Expander>
 
+                <!-- Appearance -->
+                <StackPanel Spacing="12">
+                    <TextBlock x:Uid="Settings_Appearance"
+                               FontSize="14" FontWeight="SemiBold" />
+                    <ComboBox x:Name="cboTheme"
+                              MinWidth="240" MaxWidth="320"
+                              SelectionChanged="CboTheme_SelectionChanged" />
+                    <ComboBox x:Name="cboBackdrop"
+                              MinWidth="240" MaxWidth="320"
+                              SelectionChanged="CboBackdrop_SelectionChanged" />
                 </StackPanel>
-            </Grid>
+
+                <!-- Extensions -->
+                <Expander HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"
+                          IsExpanded="False">
+
+                    <Expander.Header>
+                        <Grid Padding="0,12" ColumnSpacing="12"
+                              ColumnDefinitions="Auto,*">
+                            <FontIcon Grid.Column="0"
+                                      Glyph="&#xEA86;" FontSize="16"
+                                      VerticalAlignment="Center" />
+                            <StackPanel Grid.Column="1" Spacing="3">
+                                <TextBlock x:Uid="Settings_Extensions"
+                                           FontSize="13" FontWeight="SemiBold" />
+                                <TextBlock x:Uid="Settings_ExtensionsSubtext"
+                                           FontSize="12" Opacity="0.75"
+                                           TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                        </Grid>
+                    </Expander.Header>
+
+                    <StackPanel Margin="0,12,0,0" Spacing="0">
+
+                        <!-- Plugins -->
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16" Padding="0,0,0,14">
+                            <StackPanel Grid.Column="0" Spacing="4" VerticalAlignment="Center">
+                                <TextBlock x:Uid="Settings_Plugins"
+                                           FontSize="13" FontWeight="SemiBold"
+                                           TextWrapping="WrapWholeWords" />
+                                <TextBlock x:Uid="Settings_PluginsDescription"
+                                           FontSize="12" Opacity="0.75"
+                                           TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    Click="BtnPlugins_Click"
+                                    Padding="12,8" CornerRadius="4" MinWidth="140"
+                                    VerticalAlignment="Center">
+                                <TextBlock x:Uid="Settings_ManagePlugins"
+                                           FontSize="12" TextAlignment="Center" />
+                            </Button>
+                        </Grid>
+
+                        <Border Height="1"
+                                Background="{ThemeResource ControlStrokeColorSecondaryBrush}" />
+
+                        <!-- Tools -->
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16" Padding="0,14,0,0">
+                            <StackPanel Grid.Column="0" Spacing="4" VerticalAlignment="Center">
+                                <TextBlock x:Uid="Settings_ToolScripts"
+                                           FontSize="13" FontWeight="SemiBold"
+                                           TextWrapping="WrapWholeWords" />
+                                <TextBlock x:Uid="Settings_ToolScriptsDescription"
+                                           FontSize="12" Opacity="0.75"
+                                           TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    Click="BtnTools_Click"
+                                    Padding="12,8" CornerRadius="4" MinWidth="140"
+                                    VerticalAlignment="Center">
+                                <TextBlock x:Uid="Settings_OpenToolsPage"
+                                           FontSize="12" TextAlignment="Center" />
+                            </Button>
+                        </Grid>
+
+                    </StackPanel>
+                </Expander>
+
+                <!-- Compatibility -->
+                <Expander HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"
+                          IsExpanded="False">
+
+                    <Expander.Header>
+                        <Grid Padding="0,12" ColumnSpacing="12"
+                              ColumnDefinitions="Auto,*">
+                            <FontIcon Grid.Column="0" x:Name="icoCompat"
+                                      Glyph="&#xE73E;" FontSize="16"
+                                      VerticalAlignment="Center"
+                                      Foreground="#0f7b0f" />
+                            <StackPanel Grid.Column="1" Spacing="3">
+                                <TextBlock x:Name="txtCompatTitle"
+                                           FontSize="13" FontWeight="SemiBold" />
+                                <TextBlock x:Name="txtCompatSubtext"
+                                           FontSize="12" Opacity="0.75"
+                                           TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                        </Grid>
+                    </Expander.Header>
+
+                    <StackPanel Margin="0,12,0,0" Spacing="10">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                            <FontIcon Grid.Column="0" Glyph="&#xE7F4;" FontSize="14"
+                                      VerticalAlignment="Center" Opacity="0.8" />
+                            <TextBlock Grid.Column="1" x:Name="txtWindowsVersion"
+                                       FontSize="13" VerticalAlignment="Center" />
+                        </Grid>
+                    </StackPanel>
+                </Expander>
+
+                <!-- About -->
+                <StackPanel Spacing="10">
+                    <TextBlock x:Uid="Settings_About"
+                               FontSize="14" FontWeight="SemiBold" />
+                    <TextBlock x:Name="txtVersion"
+                               FontSize="13" Opacity="0.9" />
+                    <TextBlock Text="by Belim"
+                               FontSize="12" Opacity="0.8" Margin="0,-4,0,0" />
+
+                    <HyperlinkButton Click="BtnGitHub_Click" Padding="0">
+                        <TextBlock Text="GitHub" FontSize="13" />
+                    </HyperlinkButton>
+
+                    <HyperlinkButton Click="BtnUpdates_Click" Padding="0">
+                        <TextBlock x:Uid="Settings_CheckUpdates" FontSize="13" />
+                    </HyperlinkButton>
+
+                    <HyperlinkButton Click="BtnHelp_Click" Padding="0">
+                        <TextBlock x:Uid="MenuHelp" FontSize="13" />
+                    </HyperlinkButton>
+
+                    <Button Click="BtnFeedback_Click"
+                            MinWidth="180" Padding="10,8" CornerRadius="4"
+                            BorderThickness="1"
+                            BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}">
+                        <TextBlock x:Uid="Settings_Feedback"
+                                   FontSize="13" TextWrapping="WrapWholeWords" />
+                    </Button>
+                </StackPanel>
+
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>

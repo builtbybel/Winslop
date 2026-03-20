@@ -63,6 +63,8 @@
   <!-- ============================================================ -->
   <data name="Settings_Title.Text"><value>Einstellungen</value></data>
   <data name="Settings_Language.Text"><value>Sprache</value></data>
+  <data name="Settings_LanguageSubtext.Text"><value>Anzeigesprache der App</value></data>
+  <data name="Settings_TranslatedBy.Text"><value>Übersetzung</value></data>
   <data name="Settings_Appearance.Text"><value>Darstellung</value></data>
   <data name="Settings_ThemeSystem"><value>Systemeinstellung verwenden</value></data>
   <data name="Settings_ThemeLight"><value>Hell</value></data>
@@ -77,6 +79,8 @@
   <data name="Settings_Plugins.Text"><value>Plugins</value></data>
   <data name="Settings_PluginsDescription.Text"><value>Native Plugins, die sich in die Features der Start-Seite integrieren.</value></data>
   <data name="Settings_ManagePlugins.Text"><value>Plugins verwalten</value></data>
+  <data name="Settings_CompatOk"><value>Voll kompatibel</value></data>
+  <data name="Settings_CompatWarn"><value>Eingeschränkt kompatibel</value></data>
   <data name="Settings_About.Text"><value>Info zu dieser App</value></data>
   <data name="Settings_CheckUpdates.Text"><value>Nach Updates suchen</value></data>
   <data name="Settings_Feedback.Text"><value>Feedback senden</value></data>
@@ -114,7 +118,7 @@
   <!-- XAML x:Uid: FeaturesPage                                      -->
   <!-- ============================================================ -->
   <data name="ComboProfiles.PlaceholderText"><value>&lt;Profil auswählen...&gt;</value></data>
-  <data name="ChkIssuesOnly.Content"><value>Nur Probleme</value></data>
+  <data name="ChkIssuesOnly.Content"><value>Nur falsch Konfiguriertes anzeigen</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: AppsPage                                          -->
@@ -145,6 +149,7 @@
   <data name="BtnRun.Content"><value>Ausführen</value></data>
   <data name="BtnToolUninstall.Content"><value>Deinstallieren</value></data>
   <data name="BtnOpenFolder.ToolTipService.ToolTip"><value>Skript-Ordner öffnen</value></data>
+  <data name="Tools_SelectHint.Text"><value>Wähl ein Tool zum Starten</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: PluginsDialog                                     -->
@@ -165,7 +170,7 @@
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Feature categories (FeatureLoader.cs)      -->
   <!-- ============================================================ -->
-  <data name="Category_Issues"><value>Probleme</value></data>
+  <data name="Category_Issues"><value>Wartung</value></data>
   <data name="Category_System"><value>System</value></data>
   <data name="Category_MSEdge"><value>MS Edge</value></data>
   <data name="Category_UI"><value>Oberfläche</value></data>
@@ -368,7 +373,6 @@ Möchtest du fortfahren?</value></data>
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Apps log messages (AppsPage.xaml.cs)       -->
   <!-- ============================================================ -->
-  <data name="Apps_Scanning"><value>Installierte Apps werden gescannt, bitte warten...</value></data>
   <data name="Apps_DisplayAll"><value>Alle installierten Anwendungen werden angezeigt.</value></data>
   <data name="Apps_NoPlugin"><value>Keine Plugin-Liste gefunden. Installier CFEnhancer für Plugin-Empfehlungen.</value></data>
   <data name="Apps_DisplayPlugin"><value>Plugin-Empfehlungen werden angezeigt (CFEnhancer).</value></data>
@@ -398,6 +402,12 @@ Möchtest du fortfahren?</value></data>
   <data name="Tools_Done"><value>Fertig.</value></data>
   <data name="Tools_OpenedConsole"><value>In Konsole geöffnet.</value></data>
   <data name="Tools_CompletedLog"><value>Mit Log abgeschlossen.</value></data>
+  <data name="Tools_UninstallTitle"><value>Erweiterung entfernen</value></data>
+  <data name="Tools_UninstallConfirm"><value>"{0}" löschen? Das kann nicht rückgängig gemacht werden.</value></data>
+  <data name="Tools_UninstallYes"><value>Löschen</value></data>
+  <data name="Common_Cancel"><value>Abbrechen</value></data>
+  <data name="Tools_HelpAvailable"><value>Dieses Tool bietet eine Hilfe an</value></data>
+  <data name="Tools_ShowHelp"><value>Hilfe anzeigen</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Donation dialog (DonationHelper.cs)        -->

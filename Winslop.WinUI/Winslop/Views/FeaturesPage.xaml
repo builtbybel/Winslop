@@ -21,7 +21,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <!-- Profile Selector-->
         <ComboBox x:Name="comboProfiles" Grid.Row="0" HorizontalAlignment="Stretch"
                   x:Uid="ComboProfiles" FontSize="12" Height="30"
@@ -36,36 +36,25 @@
                 BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}"
                 BorderThickness="0" CornerRadius="4" Padding="4">
 
-            <!-- NOTE: ScrollViewer with ZoomMode=Enabled was intentionally aDDED.
-         It forced the entire TreeView to layout at once, disabling virtualization
-         and causing noticeable startup lag-->
-            
-            <ScrollViewer ZoomMode="Enabled"
-                  MinZoomFactor="0.5"
-                  MaxZoomFactor="2.0"
-                  HorizontalScrollBarVisibility="Auto"
-                  VerticalScrollBarVisibility="Auto">
-                
-                <TreeView x:Name="treeFeatures" SelectionMode="None" RightTapped="treeFeatures_RightTapped">
+            <TreeView x:Name="treeFeatures" SelectionMode="None" RightTapped="treeFeatures_RightTapped">
                 <TreeView.ItemTemplate>
                     <DataTemplate x:DataType="local:FeatureTreeItem">
-                        <TreeViewItem ItemsSource="{x:Bind Children}" 
-                                          IsExpanded="True"
-                                          Visibility="{x:Bind NodeVisibility, Mode=OneWay}">
+                        <TreeViewItem ItemsSource="{x:Bind FilteredChildren}"
+                                          IsExpanded="True">
                             <StackPanel Orientation="Horizontal">
-                                    <CheckBox IsChecked="{x:Bind IsChecked, Mode=TwoWay}"
+                                <CheckBox IsChecked="{x:Bind IsChecked, Mode=TwoWay}"
                                           IsEnabled="{x:Bind IsApplicableOnOS}"
                                           MinWidth="0" MinHeight="0" Padding="4,0,0,0" />
 
-                                    <!-- Foreground is driven by AnalysisStatus.
+                                <!-- Foreground is driven by AnalysisStatus.
                                      The converter returns fixed colors for special states and
-                                     a theme-aware default brush for normal nodes. !NOT ANYMORE! FIX!! -->                
-                                    <TextBlock Text="{x:Bind Name}"
+                                     a theme-aware default brush for normal nodes. -->
+                                <TextBlock Text="{x:Bind Name}"
                                            VerticalAlignment="Center"
                                            FontSize="12"
                                            FontWeight="{x:Bind IsCategory, Converter={StaticResource BoolToFontWeightConverter}}"
                                            Foreground="{x:Bind Status, Mode=OneWay, Converter={StaticResource StatusToBrushConverter}}" />
-                                    <TextBlock Text="{x:Bind ApplicabilityText}" VerticalAlignment="Center"
+                                <TextBlock Text="{x:Bind ApplicabilityText}" VerticalAlignment="Center"
                                            Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}"
                                            FontSize="11" Margin="6,0,0,0" />
                             </StackPanel>
@@ -73,8 +62,6 @@
                     </DataTemplate>
                 </TreeView.ItemTemplate>
             </TreeView>
-            </ScrollViewer>
         </Border>
-
     </Grid>
 </Page>
