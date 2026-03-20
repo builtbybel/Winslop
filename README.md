@@ -1,17 +1,23 @@
 > **Note:**  
 > "winslop" might refer to Windows 11 in some corners of the internet.  
 > **Winslop**, however, is an actual tool designed to clean it up.
-> 
+
 # Built to remove things. Not to impress you.
 
-> *“We need to get beyond the arguments of slop vs sophistication…”*  
+> *"We need to get beyond the arguments of slop vs sophistication…"*  
 > — Satya Nadella  
->
-> “Slop” = stuff that ships by default, wastes resources, and takes control away, while doing basically nothing for you
+
+"Slop" = stuff that ships by default, wastes resources, and takes control away, while doing basically nothing for you.
 
 This started as a joke.  
-Then Microsoft said “slop vs sophistication” out loud and it stopped being one.  
-If this tool needs marketing, it probably shouldn’t exist 😆
+Then Microsoft said "slop vs sophistication" out loud and it stopped being one.
+
+---
+
+### 📋 [What annoys you most about Windows 11?](https://builtbybel.github.io/Winslop/annoyances/)
+
+59 community-sourced annoyances. Filterable. With fixes.  
+See what Winslop handles and what needs extra tools.
 
 ---
 
@@ -166,9 +172,9 @@ Consider this stress relief with a UI.
 
 <details>
 <summary><strong>What is Winslop written in?</strong></summary>
-Started in C, then I forked CrapFixer and finished it in C# and continued from there, just much smaller and more focused.
-no glossy modern UI stack. No WinUI. No Mica. No overdesigned "modern Windows app" look. No "look how fancy we are" .
-Just tools.
+
+C# with WinUI 3. Started as a fork of CrapFixer, rebuilt from scratch to be smaller and more focused.
+
 </details>
 
 

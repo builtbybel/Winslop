@@ -1,168 +1,150 @@
-> 🚧 **Work in Progress:** Documentation is still being written and some pages may be incomplete.
-> 
-> Looking for detailed descriptions of every toggle / tweak?
-> See the full **Feature Reference** here: **[features.md](features.md)**  
-> (Includes registry keys, value names, recommended values, undo values, and plugin notes.)
+# Winslop — Quick Start
+
+Winslop is a WinUI 3 desktop app for Windows 10/11 that removes bloat, ads, telemetry and other "slop" from your system.
 
 Quick links:
-- Feature Reference: [features.md](features.md)
-- Plugins Reference: [plugins.md](plugins.md)
-- Extensions Reference: [extensions.md](extensions.md)
-
-## Quick start
-
-1. Open **Winslop.exe**
-2. Use the **tabs** to switch between areas:
-   - **Windows**: system tweaks (feature tree)
-   - **Apps**: app debloater (scan installed apps and remove selected ones)
-   - **Install**: install apps via winget
-   - **Tools**: additional modules/extensions
-
-3. Use **Inspect system** to scan/analyze.
-4. Select the tweaks you want (checkboxes).
-5. Use **Apply selected changes** to apply the checked items.
+- [Feature Reference](features.md)
+- [Plugins Reference](plugins.md)
+- [Extensions Reference](extensions.md)
+- [Windows 11 Annoyances](https://builtbybel.github.io/Winslop/annoyances/) — 59 community-sourced annoyances with fixes
 
 ---
 
-### Interface guide
+## Getting started
 
-Below is a quick overview of the Winslop interface.
+1. Run **Winslop.exe**
+2. Click **Inspect system** — scans your system and highlights issues
+3. Review the results in the feature tree (checkboxes)
+4. Click **Apply selected changes** to fix checked items
 
-<img width="455" height="656" alt="Winslop_annotated_outside_EN_v3" src="https://github.com/user-attachments/assets/63187411-e783-4cca-9bb8-5fc38438e21f" />
-
-
-### Top bar
-- **Start button (☰)**  
-Opens the main menu (selection actions, plugin/extension management, logs — varies by build).
-- **Search**  
-  Filters the current view (e.g., windows/feature;apps tree).  
-  Tip: clear the search to show all items again.
-- **Refresh**  
-Updates the view and clears the log in the log window.
-
-### Profile selector
-
-- **Select profile… (dropdown)**  
-  Loads a preset selection of tweaks/actions (a “profile”).  
-  Use this to quickly apply a known configuration without manually checking every item.
-
-  **Typical usage:**
-  1. Choose a profile from the dropdown
-  2. Click **Inspect system** (optional but recommended)
-  3. Click **Apply selected changes**
-
-  **Notes:**
-  - Switching profiles usually updates which items are checked in the tree.
-  - Available profiles depend on your build / included profiles.
-  - You can export your current checked items to a simple `.sel` text file.
-  - You can import a `.sel` file to restore a selection quickly.
-
-Some builds also support auto-loading `selection.sel` from the same folder as the executable (opt-in prompt).
-
-### Tabs
-- **Windows**  
-  Shows the feature/plugin tree. Items are grouped (e.g., *Issues*, *System*, *MS Edge*, *Privacy*…).
-- **Apps**  
-  Scans installed apps and allows uninstalling selected ones (if present).
-- **Install** (winget)
-Installs applications using winget.
-
-  **Typical flow:**
-   1. Search/browse available winget apps (depends on your UI)
-   2. Select what you want to install
-   3. Apply selected changes (install)
- 
-_Note: Application list parsed and adapted from the [WinUtil project by Chris Titus Tech](https://github.com/ChrisTitusTech/winutil)_
-
-- **Tools**  
-Extra modules and extension views live here.
-What you see depends on which extensions are included/installed.
-
-### Feature tree (Windows tab)
-- Checkboxes represent individual tweaks.  
-- Checking a parent node typically checks/unchecks all children.
-- Right-click a node for context actions (analyze/fix/restore/help) if available.
-
-### Feature tree context menu (right-click)
-
-Right-click any node in the **Windows** feature tree to open the context menu:
-
-- **Analyze**  
-  Analyzes only the selected node (or the whole group if you clicked a parent node).  
-  Useful to quickly check the current state of a single tweak/plugin.
-
-- **Fix**  
-  Applies the selected node (or all checked items under a parent node).  
-  This is basically a “run only this item” action.
-
-- **Restore**  
-  Reverts the selected node back to its original/default state (if supported).  
-  For plugins, this uses the plugin’s undo/restore command when available.
-
-- **Help**  
-  Shows help/details for the selected node (what it does and any notes/warnings).
-
-
-### Action selector (dropdown)
-> [!TIP]
-> **Online Log Inspector:** You can inspect the full log in a clean, readable view via the **Actions** dropdown menu → **Log Inspector**.
-
-- **Select an action…**  
-  A list of available log actions / helpers (depends on your build).  
-  Typically used to perform a specific operation or change the logging behavior.
-
-### Main buttons (bottom)
-- **Inspect system**  
-  Scans/analyzes the current tab content (e.g., detects system state, checks plugins, scans apps).
-- **Apply selected changes**  
-  Applies all currently checked items in the active tab (e.g., apply tweaks / uninstall selected apps).
----
-
-## Notes / Safety
-
-This tool changes Windows settings. Use **Inspect** first, review what is checked, then **Apply**.
-Some changes may require sign-out or restart to fully take effect.
+That's it. No account, no setup wizard, no cloud.
 
 ---
 
-## FAQ
+## Navigation
 
-<details>
-  <summary><strong>What’s the easiest way to share or restore my selections?</strong></summary>
+Winslop uses a left sidebar with five sections:
 
-  Use the new <strong>Export/Import</strong> feature for TreeList selections.
+| Icon | Tab | What it does |
+|------|-----|-------------|
+| 🏠 | **Home** | Feature tree — system tweaks grouped by category (Ads, Privacy, Edge, Taskbar, AI, etc.) |
+| 📦 | **Apps** | Scan installed apps and remove selected ones |
+| 📥 | **Install** | Install apps via winget in bulk |
+| 🔧 | **Tools** | PowerShell extensions — extra utilities that ship with the app |
+| ⚙️ | **Settings** | Language, theme, backdrop, compatibility check, about |
 
-  <p><em>Note:</em> Placing <code>winslop-selection.sel</code> next to <code>Winslop.exe</code> was how this worked in older builds. Newer versions use the Export/Import flow (and will guide you through importing the file).</p>
-</details>
+Bottom of the sidebar:
+- **💗 Support** — Ko-fi / PayPal links
+- **⚙️ Settings** — app configuration
 
-<details>
-<summary><strong>Where can I inspect the logs in a readable way?</strong></summary>
+---
 
-Use the built-in **Online Log Inspector**.
+## Home tab (Feature tree)
 
-Open **Actions** → **[Log Inspector](https://builtbybel.github.io/Winslop/log-inspector/index.html)** to view the full log in a clean, structured format.
-</details>
+The main view. Features are grouped into categories:
 
-<details>
-<summary><strong>Why are the footer hotkeys gone?</strong></summary>
+- **Ads** — Start Menu ads, lock screen tips, settings promotions, etc.
+- **Privacy** — Telemetry, activity history, location tracking, diagnostic data
+- **AI** — Copilot, Recall, Click to Do, Bing search, search suggestions
+- **Edge** — Browser hijacking, sidebar, shopping assistant, import on launch
+- **Taskbar** — Widgets, Chat icon, search box, Task View button
+- **System** — Shutdown speed, BSOD details, hibernation, network throttling
+- **UI** — Context menus, Snap Assist, Start layout, dark mode
+- **Gaming** — Game DVR, power throttling, visual effects
 
-Because the main actions are already reachable in **one or two clicks**.
+### How to use
 
-Less noise, same speed.
-</details>
+1. **Inspect system** — analyzes all features and shows their current state
+2. Check/uncheck items you want to fix
+3. **Apply selected changes** — applies only the checked items
 
-<details>
-<summary><strong>What about plugins?</strong></summary>
+### Profiles
 
-Plugins are **optional tools** that add extra features to Winslop.
+Use the profile dropdown above the tree to load preset selections:
+- Select a profile → Inspect → Apply
+- Export your own selection as a `.sel` file
+- Import a `.sel` file to restore it later
 
-You can install and manage them via **Main Menu → Manage plugins**.  
-Once installed, you’ll find them in the main tree under the **Plugins** section.
+### Context menu (right-click)
 
-Anyone can create plugins. This page explains how the plugin system works:
-https://github.com/builtbybel/Winslop/blob/main/docs/plugins.md
+Right-click any item in the tree:
+- **Analyze** — check this specific item
+- **Fix** — apply this item only
+- **Restore** — revert to Windows default
+- **Help** — show what it does
 
-And here’s a small demo plugin pack you can use as a starting point:
-https://github.com/builtbybel/CrapFixer/blob/main/plugins/DemoPluginPack.ps1
-</details>
+---
 
+## Apps tab
+
+Scans installed Windows apps (UWP/Store apps) and lets you remove selected ones.
+
+1. Click **Inspect system** to scan
+2. Check apps you want to remove
+3. Click **Apply selected changes**
+
+---
+
+## Install tab
+
+Bulk-install apps via winget.
+
+1. Browse or search available apps
+2. Check what you want
+3. Click **Apply selected changes** to install
+
+_App list adapted from [WinUtil by Chris Titus Tech](https://github.com/ChrisTitusTech/winutil)._
+
+---
+
+## Tools tab
+
+PowerShell-based extensions that ship with Winslop. Select a tool on the left, configure options on the right, click **Run**.
+
+Included tools:
+- **Post-setup Cleanup** — disk cleanup, clear update cache, remove Windows.old
+- **Explorer Tweaks** — show file extensions, hidden files, change default view
+- **Power Actions** — restart Explorer, shutdown, restart, sleep
+- **Windows Update Tamer** — control Windows Update behavior
+- **RemoveWindowsAI** — force-remove Copilot, Recall, AI Actions
+- **Microsoft Defender Maintenance** — update signatures, repair, show status
+- **Winget Bulk Installer** — install multiple apps at once
+- **Create Restore Point** — one-click system restore point
+- **And more...**
+
+Tools show a yellow **help hint** when documentation is available.
+Click **Uninstall** to remove any extension (asks for confirmation).
+
+---
+
+## Settings
+
+- **Language** — switch between English, German, French, Russian, Chinese (requires restart)
+- **Theme** — System / Light / Dark (requires restart)
+- **Backdrop** — Mica / Mica Alt (live switch)
+- **Compatibility** — shows if your Windows version is fully compatible
+- **Extensions** — manage plugins, open Tools page
+- **About** — version, GitHub link, update check, feedback
+
+---
+
+## Top bar
+
+- **Search** — filters the current view (features, apps, or tools)
+- **[···] Menu** — additional actions (log inspector, refresh, etc.)
+
+---
+
+## Logger
+
+The bottom panel shows a live log of all actions. Use the **[···] menu → Log Inspector** to view logs in a clean, structured format online.
+
+---
+
+## Safety
+
+- Winslop shows exactly what it will change before applying
+- Nothing runs automatically — you choose what to fix
+- Changes can be reverted via right-click → Restore
+- No data is uploaded — everything stays local
+- Create a restore point before making changes (available in Tools)

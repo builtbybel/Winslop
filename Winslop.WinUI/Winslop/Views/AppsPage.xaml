@@ -16,26 +16,30 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Display mode selector (replaces my WInforms comboDisplayMode) -->
+        <!-- Display mode selector (replaces comboDisplayMode) -->
         <ComboBox x:Name="comboDisplayMode" Grid.Row="0" HorizontalAlignment="Stretch"
               x:Uid="ComboDisplayMode" FontSize="12" Height="30"
               Margin="0,0,0,8" />
 
-        <!-- App list with checkboxes (replaces CheckedListBox) -->
-        <Border Grid.Row="1"
-                BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}"
-                BorderThickness="0" CornerRadius="4" Padding="4">
-            <ListView x:Name="listApps" SelectionMode="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="local:AppItem">
-                        <StackPanel Orientation="Horizontal">
+        <Grid Grid.Row="1">
+            <!-- App list -->
+            <Border BorderThickness="0" CornerRadius="4" Padding="4">
+                <ListView x:Name="listApps" SelectionMode="None" IsItemClickEnabled="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:AppItem">
+                            <!-- Whole row is clickable as label is CheckBox content -->
                             <CheckBox IsChecked="{x:Bind IsChecked, Mode=TwoWay}"
-                                      MinWidth="0" MinHeight="0" Padding="4,0,0,0" />
-                            <TextBlock Text="{x:Bind DisplayName}" VerticalAlignment="Center" FontSize="11" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Border>
+                                      Content="{x:Bind DisplayName}"
+                                      HorizontalAlignment="Stretch"
+                                      MinWidth="0" FontSize="11" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Border>
+
+            <!-- Loading spinner — visible only while scanning -->
+            <ProgressRing x:Name="scanSpinner" IsActive="False" Visibility="Collapsed"
+                          HorizontalAlignment="Center" VerticalAlignment="Center" Width="40" Height="40" />
+        </Grid>
     </Grid>
 </Page>

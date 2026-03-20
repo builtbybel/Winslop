@@ -63,3 +63,7 @@ url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins
 [WingetPackageManager]
 description=Winget Package Manager allows you to easily install, update, and manage application packages from the Install tab. Compatible with Winslop version 26.3.21 and higher.
 url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/winget-apps.ini
+
+[Win11Debloat]
+description=Launches Raphire's Win11Debloat using the official remote bootstrap to remove bloatware and optimize Windows.
+url=https://raw.githubusercontent.com/builtbybel/Winslop/refs/heads/main/plugins/Win11Debloat.ps1

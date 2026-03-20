@@ -1,112 +1,124 @@
-// read text from clipboard
+// Paste from clipboard and auto-analyze
 async function pasteResult() {
   try {
     const text = await navigator.clipboard.readText();
-    if (!text) {
-      alert("Clipboard is empty");
-      return;
-    }
+    if (!text) return alert("Clipboard is empty.");
     document.getElementById("logInput").value = text;
-    analyzeLog(); // direkt analysieren
+    analyzeLog();
   } catch (err) {
-    alert("No access to clipboard " + err);
+    alert("Clipboard access denied: " + err);
   }
 }
 
-// Analyze the pasted log and extract issues, registry keys, and plugin info
+// Analyze log and render results with annoyance level
 function analyzeLog() {
   const log = document.getElementById("logInput").value;
   const output = document.getElementById("output");
   const lines = log.split("\n");
 
-  const issues = lines.filter((line) => line.startsWith("❌"));
-  const regKeys = lines.filter((line) => line.includes("HKEY_") || line.includes("➤"));
-  const plugins = lines.filter((line) => line.match(/Plugin ready: .*\.ps1/i));
+  // Extract data
+  const issues = lines.filter(l => l.startsWith("❌"));
+  const regKeys = lines.filter(l => l.includes("HKEY_") || l.includes("➤"));
+  const plugins = lines.filter(l => /Plugin ready:.*\.ps1/i.test(l));
 
-  output.innerHTML = `
-    <h3>🧪 Found ${issues.length} issues</h3>
-    <div>${issues.map((i) => `<div class="issue">${i}</div>`).join("")}</div>
-    <hr>
-    <h3>🗂 Registry Keys</h3>
-    <div>${regKeys.map((k) => `<div class="key">${k}</div>`).join("")}</div>
-    <hr>
-    <h3>📦 Loaded Plugins</h3>
-    <div>${plugins.map((p) => `<div class="plugin">${p}</div>`).join("")}</div>
-  `;
+  // Count total features: lines with status emoji (✅, ❌, ✔, ⚠)
+  const featureLines = lines.filter(l => /^[✅❌✔⚠🔧↩️]/.test(l.trim()));
+  const total = featureLines.length || 1;
+  const annoyancePct = Math.round((issues.length / total) * 100);
+
+  // Color for annoyance bar
+  let barColor;
+  if (annoyancePct === 0) barColor = "var(--green)";
+  else if (annoyancePct < 20) barColor = "var(--yellow)";
+  else barColor = "var(--red)";
+
+  output.innerHTML =
+    // Annoyance level bar
+    `<div class="annoyance">
+      <span class="annoyance-label">Annoyance Level</span>
+      <div class="annoyance-bar">
+        <div class="annoyance-fill" style="width:${annoyancePct}%;background:${barColor}"></div>
+      </div>
+      <span class="annoyance-pct" style="color:${barColor}">${annoyancePct}%</span>
+    </div>` +
+
+    // Issues
+    `<h3>Found ${issues.length} issue(s)</h3>` +
+    (issues.length
+      ? issues.map(i => `<div class="item issue">${esc(i)}</div>`).join("")
+      : `<div class="item">None — your Windows looks clean!</div>`) +
+
+    `<hr>` +
+
+    // Registry keys
+    `<h3>Registry Keys</h3>` +
+    (regKeys.length
+      ? regKeys.map(k => `<div class="item key">${esc(k)}</div>`).join("")
+      : `<div class="item">No registry keys found.</div>`) +
+
+    `<hr>` +
+
+    // Plugins
+    `<h3>Loaded Plugins</h3>` +
+    (plugins.length
+      ? plugins.map(p => `<div class="item plugin">${esc(p)}</div>`).join("")
+      : `<div class="item">No plugins detected.</div>`);
 }
 
-// Save screenshot of the output section
+// HTML-escape to prevent XSS
+function esc(str) {
+  const d = document.createElement("div");
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+// Screenshot the output section
 function captureResult() {
-  html2canvas(document.getElementById("output")).then((canvas) => {
-    const link = document.createElement("a");
-    link.download = "Winslop-results.png";
-    link.href = canvas.toDataURL();
-    link.click();
+  const el = document.getElementById("output");
+  if (!el.innerText.trim()) return alert("No results to capture.");
+  html2canvas(el).then(canvas => {
+    const a = document.createElement("a");
+    a.download = "Winslop-results.png";
+    a.href = canvas.toDataURL();
+    a.click();
   });
 }
 
-// Native share (for mobile browsers)
+// Native share API
 function shareResult() {
   const text = document.getElementById("output").innerText;
+  if (!text.trim()) return alert("No results to share.");
   if (navigator.share) {
-    navigator
-      .share({
-        title: "Winslop Analysis Results",
-        text: text,
-      })
-      .catch((err) => console.log("Share failed:", err));
+    navigator.share({ title: "Winslop Analysis", text }).catch(() => {});
   } else {
     alert("Sharing is not supported by your browser.");
   }
 }
 
-// Translation
-window.translateViaGoogle = async function () {
-  const text = document.getElementById("logInput").value || "";
-  if (!text.trim()) {
-    alert("Paste a log first.");
-    return;
-  }
+// Share on X/Twitter via tweet intent
+function shareOnX() {
+  const lines = document.getElementById("logInput").value.split("\n");
+  const issues = lines.filter(l => l.startsWith("❌")).length;
+  const featureLines = lines.filter(l => /^[✅❌✔⚠🔧↩️]/.test(l.trim()));
+  const total = featureLines.length || 1;
+  const pct = Math.round((issues / total) * 100);
 
-  try {
-    await navigator.clipboard.writeText(text);
-    alert("Log copied to clipboard. Paste it into Google Translate.");
-  } catch {
-    alert("Could not copy to clipboard. Copy manually, then paste into Google Translate.");
-  }
+  const text = issues > 0
+    ? `My Windows has ${issues} annoyance(s) — Annoyance Level: ${pct}%! Scanned with #Winslop`
+    : `My Windows is clean — 0% Annoyance Level! Checked with #Winslop`;
 
+  const url = "https://github.com/builtbybel/Winslop";
   window.open(
-    "https://translate.google.com/?sl=auto&tl=de&op=translate",
-    "_blank",
-    "noopener"
+    `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
+    "_blank"
   );
-};
-
-
-
-// Share the result as an image on Twitter/X
-function shareOnTwitter() {
-  const outputEl = document.getElementById("output");
-  if (!outputEl.innerText.trim()) return alert("No results to share yet.");
-
-  // Create screenshot from result div
-  html2canvas(outputEl).then((canvas) => {
-    const dataUrl = canvas.toDataURL("image/png");
-
-    // Convert image to base64 string (can't upload directly to Twitter)
-    // Instead, show preview and user uploads manually via prompt
-    const win = window.open();
-    win.document.write(`<h2>📷 Screenshot ready for X / Twitter</h2>`);
-    win.document.write(
-      `<p>Right-click the image below and save it to upload on Twitter manually.</p>`
-    );
-    win.document.write(
-      `<img src="${dataUrl}" style="max-width:100%;border:1px solid #ccc;" />`
-    );
-    win.document.write(
-      `<p><a href="https://twitter.com/intent/tweet?text=Check%20out%20my%20Winslop%20analysis!&hashtags=Winslop,loganalyzer" target="_blank">➡️ Click here to post on X</a></p>`
-    );
-  });
 }
 
-
+// Open Google Translate with log text
+function translateViaGoogle() {
+  const text = document.getElementById("logInput").value;
+  if (!text.trim()) return alert("Paste a log first.");
+  navigator.clipboard.writeText(text).catch(() => {});
+  alert("Log copied to clipboard. Paste it into Google Translate.");
+  window.open("https://translate.google.com/?sl=auto&tl=en&op=translate", "_blank");
+}

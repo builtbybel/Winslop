@@ -1,294 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Winslop Log Inspector</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Winslop Log Inspector</title>
+  <style>
+    :root {
+      --bg: #1e1e1e;
+      --surface: #2d2d2d;
+      --surface2: #383838;
+      --border: #444;
+      --text: #e0e0e0;
+      --text2: #999;
+      --accent: #0078d4;
+      --accent-hover: #1a8ae8;
+      --red: #e74c3c;
+      --yellow: #f0c040;
+      --green: #2ecc71;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --ui: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-    <style>
-      /* ===== Win95 Classic ===== */
-      :root{
-        --face:#c0c0c0;
-        --face2:#d4d0c8;
-        --shadow:#808080;
-        --dark:#404040;
-        --hilite:#ffffff;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        --title:#000080;
-        --title2:#000060;
-        --titleText:#ffffff;
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ui);
+      font-size: 13px;
+      line-height: 1.5;
+    }
 
-        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-          "Courier New", monospace;
-        --ui: "MS Sans Serif", Tahoma, Verdana, Arial, sans-serif;
-      }
+    /* Header */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-      *{ box-sizing:border-box; }
+    header h1 {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-      body{
-        margin:0;
-        background: var(--face);
-        color:#000;
-        font-family: var(--ui);
-        font-size:12px;
-      }
+    .badge {
+      font-weight: 400;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(0,120,212,.15);
+      color: var(--accent);
+    }
 
-      /* Header -> Win95 titlebar */
-      header{
-        background: linear-gradient(90deg, var(--title), var(--title2));
-        color: var(--titleText);
-        padding: 6px 8px;
-        display:flex;
-        align-items:center;
-        justify-content: space-between;
-        border-bottom: 1px solid #000;
-        user-select:none;
-      }
+    .links { display: flex; gap: 6px; }
 
-      header h1{
-        margin:0;
-        font-size:12px;
-        font-weight:700;
-        display:flex;
-        align-items:center;
-        gap:8px;
-      }
+    .links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      transition: background .15s;
+    }
 
-      .badge{
-        font-weight:400;
-        font-size:11px;
-        padding: 1px 6px;
-        border: 1px solid rgba(255,255,255,.35);
-        background: rgba(255,255,255,.12);
-      }
+    .links a:hover { background: var(--surface2); color: var(--text); }
 
-      /* Top-right links */
-      .actions{
-        display:flex;
-        gap:6px;
-      }
-      .actions a{
-        color:#000;
-        text-decoration:none;
-        background: var(--face2);
-        padding: 2px 8px;
-        border: 2px solid var(--hilite);
-        border-right-color: var(--shadow);
-        border-bottom-color: var(--shadow);
-      }
-      .actions a:active{
-        border: 2px solid var(--shadow);
-        border-right-color: var(--hilite);
-        border-bottom-color: var(--hilite);
-        padding: 3px 7px 1px 9px;
-      }
+    /* Main */
+    main { max-width: 900px; margin: 0 auto; padding: 16px; }
 
-      /* Layout */
-      main{
-        padding: 12px;
-        max-width: 920px;
-        margin: 0 auto;
-      }
-      .card{
-        background: var(--face2);
-        padding: 10px;
-        border: 2px solid var(--shadow);
-        border-right-color: var(--hilite);
-        border-bottom-color: var(--hilite);
-      }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
 
-      .hint{
-        margin:0 0 8px 0;
-        line-height:1.4;
-        color:#111;
-      }
-      .footnote{
-        margin-top: 6px;
-        color:#222;
-        font-size: 11px;
-      }
+    .hint {
+      color: var(--text2);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
 
-      textarea{
-        width:100%;
-        height:220px;
-        resize:vertical;
-        font-family: var(--mono);
-        font-size:12px;
-        padding:8px;
-        background:#fff;
-        outline:none;
-        border: 2px solid var(--shadow);
-        border-right-color: var(--hilite);
-        border-bottom-color: var(--hilite);
-      }
+    textarea {
+      width: 100%;
+      height: 200px;
+      resize: vertical;
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 10px;
+      background: #1a1a1a;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      outline: none;
+    }
 
-      .btn-group{
-        display:flex;
-        flex-wrap:wrap;
-        gap:6px;
-        margin-top:8px;
-      }
+    textarea:focus { border-color: var(--accent); }
 
-      button{
-        font-family: var(--ui);
-        font-size:12px;
-        padding: 4px 10px;
-        background: var(--face2);
-        border: 2px solid var(--hilite);
-        border-right-color: var(--shadow);
-        border-bottom-color: var(--shadow);
-        cursor:pointer;
-      }
-      button:active{
-        border: 2px solid var(--shadow);
-        border-right-color: var(--hilite);
-        border-bottom-color: var(--hilite);
-        padding: 5px 9px 3px 11px;
-      }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
 
-      button.secondary{
-        filter: grayscale(10%);
-      }
+    button {
+      font-family: var(--ui);
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      cursor: pointer;
+      transition: background .15s;
+    }
 
-      .result{
-        margin-top: 10px;
-        background:#fff;
-        padding: 8px;
-        min-height:120px;
-        overflow:auto;
-        border: 2px solid var(--shadow);
-        border-right-color: var(--hilite);
-        border-bottom-color: var(--hilite);
-        font-family: var(--mono);
-      }
+    button:hover { background: #444; }
 
-      .section-title{
-        font-family: var(--ui);
-        font-weight:700;
-        margin: 0 0 6px 0;
-      }
+    button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
 
-      .row{
-        display:flex;
-        gap:10px;
-        align-items: baseline;
-        padding: 4px 0;
-        border-bottom: 1px dotted #ddd;
-      }
-      .row:last-child{ border-bottom:none; }
+    button.primary:hover { background: var(--accent-hover); }
 
-      .tag{
-        font-family: var(--ui);
-        font-size:11px;
-        padding: 1px 6px;
-        border: 1px solid #999;
-        background:#f3f3f3;
-        white-space:nowrap;
-      }
-      .tag.issue{ background:#ffe6e6; border-color:#cc6666; }
-      .tag.ok{ background:#e7ffe7; border-color:#66aa66; }
-      .tag.plugin{ background:#e7f0ff; border-color:#6688cc; }
+    /* Output */
+    .output {
+      margin-top: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 100px;
+    }
 
-      /* Styles for elements your JS injects */
-      .issue, .key, .plugin{
-        padding: 4px 6px;
-        margin: 4px 0;
-        border-left: 3px solid #999;
-        background: #fafafa;
-        word-break: break-word;
-      }
-      .issue{
-        border-left-color:#b00020;
-        background:#ffecec;
-      }
-      .key{
-        border-left-color:#333;
-        background:#f4f4f4;
-      }
-      .plugin{
-        border-left-color:#1e4e80;
-        background:#ecf3ff;
-      }
+    .output h3 {
+      font-size: 13px;
+      font-weight: 600;
+      margin: 14px 0 6px 0;
+    }
 
-      #output h3{
-        font-family: var(--ui);
-        font-size: 12px;
-        margin: 8px 0 6px 0;
-      }
+    .output h3:first-child { margin-top: 0; }
 
-      #output hr{
-        border:0;
-        border-top: 1px solid #cfcfcf;
-        margin: 10px 0;
-      }
+    .output hr {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 12px 0;
+    }
 
-      @media (max-width: 520px){
-        .actions{ display:none; }
-      }
-    </style>
-  </head>
+    /* Annoyance bar */
+    .annoyance {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background: var(--surface2);
+      margin-bottom: 12px;
+    }
 
-  <body>
-    <!-- ---------- HEADER ---------- -->
-    <header>
-      <h1>
-        Winslop Log Inspector
-        <span class="badge">local • deterministic</span>
-      </h1>
-      <div class="actions">
-        <a href="https://github.com/builtbybel/Winslop" target="_blank" rel="noopener">GitHub</a>
-        <a
-          href="https://www.paypal.me/Hasanovic7"
-          target="_blank"
-          rel="noopener"
-          >Donate</a
-        >
-        <a href="https://ko-fi.com/builtbybel" target="_blank" rel="noopener">Ko-fi</a>
-      </div>
-    </header>
+    .annoyance-label { font-weight: 600; white-space: nowrap; }
 
-    <!-- ---------- MAIN ---------- -->
-    <main>
-      <div class="card">
-        <p class="hint">
-          <strong>How it works:</strong> paste a full Winslop log here and run an inspection.
-          No uploads. No cloud. This page only parses text in your browser.
-        </p>
+    .annoyance-bar {
+      flex: 1;
+      height: 8px;
+      background: #444;
+      border-radius: 4px;
+      overflow: hidden;
+    }
 
-        <!-- ---------- INPUT ---------- -->
-        <textarea id="logInput" placeholder="Paste your Winslop log here..."></textarea>
+    .annoyance-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width .3s;
+    }
 
-        <!-- ---------- BUTTONS ---------- -->
-        <div class="btn-group">
-          <button onclick="pasteResult()">Paste from clipboard</button>
-          <button onclick="analyzeLog()">Inspect log</button>
-          <button class="secondary" onclick="translateViaGoogle()">Translate (Google)</button>
-          <button class="secondary" onclick="captureResult()">Screenshot</button>
-          <button class="secondary" onclick="shareResult()">Share</button>
-          <button class="secondary" onclick="shareOnTwitter()">Share on X</button>
-        </div>
+    .annoyance-pct { font-weight: 600; min-width: 36px; text-align: right; }
 
-        <div class="footnote">
-          Tip: include the full scan section for best results (system + actions + errors).
-        </div>
-      </div>
+    /* Result items */
+    .item {
+      padding: 6px 10px;
+      margin: 4px 0;
+      border-left: 3px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius: 0 4px 4px 0;
+      font-family: var(--mono);
+      font-size: 12px;
+      word-break: break-word;
+    }
 
-      <!-- ---------- OUTPUT ---------- -->
-      <div class="result" id="output">
-        <div class="section-title">Output</div>
-        <div class="row">
-          <span class="tag">idle</span>
-          <span class="value">Paste a log and click <span class="key">Inspect log</span>.</span>
-        </div>
-      </div>
-    </main>
+    .item.issue { border-left-color: var(--red); background: rgba(231,76,60,.08); }
+    .item.key   { border-left-color: var(--text2); }
+    .item.plugin { border-left-color: var(--accent); background: rgba(0,120,212,.06); }
 
-    <!-- ---------- JS ---------- -->
-    <script src="js/main.js"></script>
+    .idle { color: var(--text2); }
 
-    <!-- html2canvas for screenshots -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  </body>
+    @media (max-width: 520px) {
+      .links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>
+    Winslop Log Inspector
+    <span class="badge">local &bull; no uploads</span>
+  </h1>
+  <div class="links">
+    <a href="https://github.com/builtbybel/Winslop" target="_blank">GitHub</a>
+    <a href="https://www.paypal.me/Hasanovic7" target="_blank">Donate</a>
+    <a href="https://ko-fi.com/builtbybel" target="_blank">Ko-fi</a>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <p class="hint">Paste a full Winslop log and click <strong>Inspect</strong>. Everything runs locally in your browser.</p>
+
+    <textarea id="logInput" placeholder="Paste your Winslop log here..."></textarea>
+
+    <div class="btn-row">
+      <button class="primary" onclick="pasteResult()">Paste &amp; Inspect</button>
+      <button onclick="analyzeLog()">Inspect log</button>
+      <button onclick="translateViaGoogle()">Translate</button>
+      <button onclick="captureResult()">Screenshot</button>
+      <button onclick="shareResult()">Share</button>
+      <button onclick="shareOnX()">Share on X</button>
+    </div>
+  </div>
+
+  <div class="output" id="output">
+    <p class="idle">Paste a log and click <strong>Inspect</strong> to begin.</p>
+  </div>
+</main>
+
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
 </html>
-
-
