@@ -63,6 +63,14 @@
   <!-- ============================================================ -->
   <data name="Settings_Title.Text"><value>Ajustes</value></data>
   <data name="Settings_Language.Text"><value>Idioma</value></data>
+  <data name="Settings_LanguageSubtext.Text"><value>Idioma de la interfaz</value></data>
+  <data name="Settings_TranslatedBy.Text"><value>Traducción</value></data>
+  <data name="Settings_Appearance.Text"><value>Apariencia</value></data>
+  <data name="Settings_ThemeSystem"><value>Predeterminado del sistema</value></data>
+  <data name="Settings_ThemeLight"><value>Claro</value></data>
+  <data name="Settings_ThemeDark"><value>Oscuro</value></data>
+  <data name="Settings_RestartTitle"><value>Reinicio necesario</value></data>
+  <data name="Settings_RestartMessage"><value>Por favor reinicia la app para que los cambios surtan efecto.</value></data>
   <data name="Settings_Extensions.Text"><value>Extensiones</value></data>
   <data name="Settings_ExtensionsSubtext.Text"><value>Administra plugins nativos y herramientas independientes.</value></data>
   <data name="Settings_ToolScripts.Text"><value>Extensiones</value></data>
@@ -71,6 +79,8 @@
   <data name="Settings_Plugins.Text"><value>Plugins</value></data>
   <data name="Settings_PluginsDescription.Text"><value>Complementos nativos que se integran con las Funciones de la página de Inicio.</value></data>
   <data name="Settings_ManagePlugins.Text"><value>Administrar complementos</value></data>
+  <data name="Settings_CompatOk"><value>Totalmente compatible</value></data>
+  <data name="Settings_CompatWarn"><value>Compatibilidad limitada</value></data>
   <data name="Settings_About.Text"><value>Acerca de este programa</value></data>
   <data name="Settings_CheckUpdates.Text"><value>Buscar actualizaciones</value></data>
   <data name="Settings_Feedback.Text"><value>Envíanos comentarios</value></data>
@@ -138,6 +148,7 @@
   <data name="BtnRun.Content"><value>Ejecutar</value></data>
   <data name="BtnToolUninstall.Content"><value>Desinstalar</value></data>
   <data name="BtnOpenFolder.ToolTipService.ToolTip"><value>Abrir carpeta de scripts</value></data>
+  <data name="Tools_SelectHint.Text"><value>Selecciona una herramienta para comenzar</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: PluginsDialog                                     -->
@@ -361,7 +372,6 @@ Cualquier ajuste previo para esos elementos puede ser revertido.
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Apps log messages (AppsPage.xaml.cs)       -->
   <!-- ============================================================ -->
-  <data name="Apps_Scanning"><value>Analizando aplicaciones instaladas, por favor espere...</value></data>
   <data name="Apps_DisplayAll"><value>Mostrando todas las aplicaciones instaladas.</value></data>
   <data name="Apps_NoPlugin"><value>No se encontró lista de complementos. Instale CFEnhancer para usar recomendaciones de complementos.</value></data>
   <data name="Apps_DisplayPlugin"><value>Mostrando recomendaciones de complementos (CFEnhancer).</value></data>
@@ -391,6 +401,12 @@ Cualquier ajuste previo para esos elementos puede ser revertido.
   <data name="Tools_Done"><value>Completado.</value></data>
   <data name="Tools_OpenedConsole"><value>Abierto en consola.</value></data>
   <data name="Tools_CompletedLog"><value>Completado con registro.</value></data>
+  <data name="Tools_UninstallTitle"><value>Eliminar extensión</value></data>
+  <data name="Tools_UninstallConfirm"><value>¿Eliminar "{0}"? Esta acción no se puede deshacer.</value></data>
+  <data name="Tools_UninstallYes"><value>Eliminar</value></data>
+  <data name="Common_Cancel"><value>Cancelar</value></data>
+  <data name="Tools_HelpAvailable"><value>Esta herramienta ofrece una guía de ayuda</value></data>
+  <data name="Tools_ShowHelp"><value>Mostrar ayuda</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Donation dialog (DonationHelper.cs)        -->
@@ -437,7 +453,7 @@ Cualquier ajuste previo para esos elementos puede ser revertido.
   <!-- C# ResourceLoader: Language switcher                          -->
   <!-- ============================================================ -->
   <data name="Language_RestartTitle"><value>Idioma cambiado</value></data>
-  <data name="Language_RestartRequired"><value>Por favor, reinicia Winslop para que el cambio de idioma tenga efecto".</value></data>
+  <data name="Language_RestartRequired"><value>Por favor, reinicia Winslop para que el cambio de idioma tenga efecto.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Common strings                             -->
