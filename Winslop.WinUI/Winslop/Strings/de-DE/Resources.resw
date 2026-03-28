@@ -49,13 +49,12 @@
   <data name="NavApps.Text"><value>Apps</value></data>
   <data name="NavInstall.Text"><value>Installieren</value></data>
   <data name="NavTools.Text"><value>Werkzeuge</value></data>
-  <data name="NavSupport.Text"><value>Spenden</value></data>
   <data name="NavSettings.Text"><value>Einstellungen</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: MainWindow — Support flyout                      -->
   <!-- ============================================================ -->
-  <data name="MenuShare.Text"><value>Winslop teilen</value></data>
+  <data name="MenuShare.Text"><value>Winslopr teilen</value></data>
   <data name="MenuKofi.Text"><value>Kaffee spendieren auf Ko-fi</value></data>
   <data name="MenuPaypal.Text"><value>Spenden via PayPal</value></data>
 
@@ -74,19 +73,17 @@
   <data name="Settings_ThemeDark"><value>Dunkel</value></data>
 
   <data name="Settings_Extensions.Text"><value>Erweiterungen</value></data>
-    <data name="Settings_ExtensionsSubtext.Text"><value>Verwalte native Plugins und eigenst&#228;ndige Tools.</value></data>
   <data name="Settings_ToolScripts.Text"><value>Erweiterungen</value></data>
   <data name="Settings_ToolScriptsDescription.Text"><value>Eigenst&#228;ndige Skripte, die &#252;ber die Tools-Seite ge&#246;ffnet und ausgef&#252;hrt werden.</value></data>
   <data name="Settings_OpenToolsPage.Text"><value>Tools-Seite &#246;ffnen</value></data>
   <data name="Settings_Plugins.Text"><value>Plugins</value></data>
   <data name="Settings_PluginsDescription.Text"><value>Native Plugins, die sich in die Features der Start-Seite integrieren.</value></data>
   <data name="Settings_ManagePlugins.Text"><value>Plugins verwalten</value></data>
-  <data name="Settings_Legacy.Text"><value>Winslop Legacy</value></data>
-  <data name="Settings_LegacyDescription.Text"><value>Die klassische WinForms-Version von Winslop.</value></data>
+  <data name="Settings_Legacy.Text"><value>Winslopr Legacy</value></data>
+  <data name="Settings_LegacyDescription.Text"><value>Die klassische WinForms-Version von Winslopr.</value></data>
   <data name="Settings_LaunchLegacy.Text"><value>Legacy starten</value></data>
   <data name="Settings_CompatOk"><value>Voll kompatibel</value></data>
   <data name="Settings_CompatWarn"><value>Eingeschränkt kompatibel</value></data>
-  <data name="Settings_About.Text"><value>Info zu dieser App</value></data>
   <data name="Settings_CheckUpdates.Text"><value>Nach Updates suchen</value></data>
   <data name="Settings_Feedback.Text"><value>Feedback senden</value></data>
   <data name="MenuHelp.Text"><value>Hilfe</value></data>
@@ -99,8 +96,6 @@
   <data name="MenuToggle.Text"><value>Alle umschalten</value></data>
   <data name="MenuUndo.Text"><value>Letzte Änderungen rückgängig</value></data>
   <data name="MenuRefresh.Text"><value>Aktualisieren</value></data>
-  <data name="MenuExport.Text"><value>Auswahl exportieren...</value></data>
-  <data name="MenuImport.Text"><value>Aus Datei importieren...</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: MainWindow — Log actions submenu                  -->
@@ -129,7 +124,6 @@
   <!-- ============================================================ -->
   <!-- XAML x:Uid: AppsPage                                          -->
   <!-- ============================================================ -->
-  <data name="ComboDisplayMode.PlaceholderText"><value>Scanmodus wählen...</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: InstallPage                                       -->
@@ -332,15 +326,15 @@
   <data name="Analysis_Plugins"><value>Plugins</value></data>
   <data name="Analysis_Total"><value>Gesamt</value></data>
   <data name="Analysis_Issues"><value>Problem(e)</value></data>
-  <data name="Analysis_IssuesFound"><value>{0} Problem(e) gefunden – schau ins Log, bevor du Änderungen anwendest.</value></data>
-  <data name="Analysis_AllGood"><value>Alles sieht gut aus!</value></data>
-  <data name="Analysis_OpenLogInspector"><value>Online-Log-Inspektor öffnen</value></data>
+  <data name="Analysis_IssuesFound"><value>{0} von {1} nicht wie empfohlen konfiguriert.</value></data>
+  <data name="Analysis_AllGoodCount"><value>Alle {0} Einstellungen richtig konfiguriert.</value></data>
+  <data name="Analysis_DetailsInLog"><value>Details im Log.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Context menu (FeaturesPage.xaml.cs)        -->
   <!-- ============================================================ -->
-  <data name="Context_Analyze"><value>Analysieren</value></data>
-  <data name="Context_Fix"><value>Beheben</value></data>
+  <data name="Context_Analyze"><value>Prüfen</value></data>
+  <data name="Context_Fix"><value>Anwenden</value></data>
   <data name="Context_Restore"><value>Wiederherstellen</value></data>
   <data name="Context_Help"><value>Hilfe</value></data>
 
@@ -356,7 +350,6 @@ Bitte wähl zuerst ein oder mehrere Features/Plugins im Baum aus.</value></data>
 Bisherige Anpassungen werden möglicherweise rückgängig gemacht.
 
 Möchtest du fortfahren?</value></data>
-  <data name="Restore_Done"><value>{0} ausgewählte(s) Element(e) wiederhergestellt.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Profile actions (FeaturesPage.xaml.cs)     -->
@@ -418,19 +411,17 @@ Möchtest du fortfahren?</value></data>
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Donation dialog (DonationHelper.cs)        -->
   <!-- ============================================================ -->
-  <data name="Donation_Title"><value>Winslop unterstützen &#x2764;</value></data>
-  <data name="Donation_Body"><value>Wenn Winslop dir Zeit gespart hat, unterstütze die Zukunft des Projekts. Es bleibt dank Leuten wie dir kostenlos und werbefrei.</value></data>
+  <data name="Donation_Title"><value>Winslopr unterstützen &#x2764;</value></data>
+  <data name="Donation_Body"><value>Wenn Winslopr dir Zeit gespart hat, unterstütze die Zukunft des Projekts. Es bleibt dank Leuten wie dir kostenlos und werbefrei.</value></data>
   <data name="Donation_AlreadyDonated"><value>Ich habe bereits gespendet, nicht mehr anzeigen</value></data>
   <data name="Donation_Donate"><value>Spenden</value></data>
   <data name="Donation_MaybeLater"><value>Vielleicht später</value></data>
 
   <!-- XAML: Migration InfoBar (MainWindow.xaml)                      -->
   <!-- ============================================================ -->
-  <data name="InfoMigration.Title"><value>Neues Design, neues Kapitel — braucht Winslop einen neuen Namen?</value></data>
-  <data name="InfoMigration.Message"><value>Winslop hat ein neues Gesicht — Zeit für einen neuen Namen? Mit dem Wechsel zu WinUI 3 hat sich die App verändert. Sag mir deine Meinung.</value></data>
+  <data name="InfoMigration.Title"><value>Neues Design, neues Kapitel — braucht Winslopr einen neuen Namen?</value></data>
+  <data name="InfoMigration.Message"><value>Winslopr hat ein neues Gesicht — Zeit für einen neuen Namen? Mit dem Wechsel zu WinUI 3 hat sich die App verändert. Sag mir deine Meinung.</value></data>
   <data name="InfoMigration_Vote.Content"><value>Jetzt abstimmen →</value></data>
-  <data name="LoggerEmpty_Title.Text"><value>Noch keine Ergebnisse</value></data>
-  <data name="LoggerEmpty_Hint.Text"><value>Klicke auf "System prüfen" um deine Windows-Konfiguration zu scannen.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Plugins status (PluginsDialog.xaml.cs)     -->
@@ -451,7 +442,7 @@ Möchtest du fortfahren?</value></data>
   <!-- C# ResourceLoader: Language switcher                          -->
   <!-- ============================================================ -->
   <data name="Language_RestartTitle"><value>Sprache geändert</value></data>
-  <data name="Language_RestartRequired"><value>Bitte starte Winslop neu, damit die Sprachänderung wirksam wird.</value></data>
+  <data name="Language_RestartRequired"><value>Bitte starte Winslopr neu, damit die Sprachänderung wirksam wird.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Common strings                             -->

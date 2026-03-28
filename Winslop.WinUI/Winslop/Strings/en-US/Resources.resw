@@ -49,13 +49,12 @@
   <data name="NavApps.Text"><value>Apps</value></data>
   <data name="NavInstall.Text"><value>Install</value></data>
   <data name="NavTools.Text"><value>Tools</value></data>
-  <data name="NavSupport.Text"><value>Support</value></data>
   <data name="NavSettings.Text"><value>Settings</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: MainWindow — Support flyout                      -->
   <!-- ============================================================ -->
-  <data name="MenuShare.Text"><value>Share Winslop</value></data>
+  <data name="MenuShare.Text"><value>Share Winslopr</value></data>
   <data name="MenuKofi.Text"><value>Buy me a coffee on Ko-fi</value></data>
   <data name="MenuPaypal.Text"><value>Donate via PayPal</value></data>
 
@@ -74,19 +73,17 @@
   <data name="Settings_ThemeDark"><value>Dark</value></data>
 
   <data name="Settings_Extensions.Text"><value>Extensions</value></data>
-  <data name="Settings_ExtensionsSubtext.Text"><value>Manage native plugins and standalone tools.</value></data>
   <data name="Settings_ToolScripts.Text"><value>Extensions</value></data>
   <data name="Settings_ToolScriptsDescription.Text"><value>Standalone scripts that open and run from the Tools page.</value></data>
   <data name="Settings_OpenToolsPage.Text"><value>Open Tools Page</value></data>
   <data name="Settings_Plugins.Text"><value>Plugins</value></data>
   <data name="Settings_PluginsDescription.Text"><value>Native plugins that integrate with the Features on the Home page.</value></data>
   <data name="Settings_ManagePlugins.Text"><value>Manage Plugins</value></data>
-  <data name="Settings_Legacy.Text"><value>Winslop Legacy</value></data>
-  <data name="Settings_LegacyDescription.Text"><value>The classic WinForms version of Winslop.</value></data>
+  <data name="Settings_Legacy.Text"><value>Winslopr Legacy</value></data>
+  <data name="Settings_LegacyDescription.Text"><value>The classic WinForms version of Winslopr.</value></data>
   <data name="Settings_LaunchLegacy.Text"><value>Launch Legacy</value></data>
   <data name="Settings_CompatOk"><value>Fully compatible</value></data>
   <data name="Settings_CompatWarn"><value>Limited compatibility</value></data>
-  <data name="Settings_About.Text"><value>About this app</value></data>
   <data name="Settings_CheckUpdates.Text"><value>Check for updates</value></data>
   <data name="Settings_Feedback.Text"><value>Send feedback</value></data>
   <data name="MenuHelp.Text"><value>Help</value></data>
@@ -98,8 +95,6 @@
   <data name="MenuToggle.Text"><value>Toggle All</value></data>
   <data name="MenuUndo.Text"><value>Undo last changes</value></data>
   <data name="MenuRefresh.Text"><value>Refresh</value></data>
-  <data name="MenuExport.Text"><value>Export selection...</value></data>
-  <data name="MenuImport.Text"><value>Import from file...</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: MainWindow — Log actions submenu                  -->
@@ -128,7 +123,6 @@
   <!-- ============================================================ -->
   <!-- XAML x:Uid: AppsPage                                          -->
   <!-- ============================================================ -->
-  <data name="ComboDisplayMode.PlaceholderText"><value>Select scan mode...</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: InstallPage                                       -->
@@ -331,15 +325,15 @@
   <data name="Analysis_Plugins"><value>Plugins</value></data>
   <data name="Analysis_Total"><value>Total</value></data>
   <data name="Analysis_Issues"><value>issue(s)</value></data>
-  <data name="Analysis_IssuesFound"><value>{0} issue(s) found - review the log before applying fixes.</value></data>
-  <data name="Analysis_AllGood"><value>Everything looks good!</value></data>
-  <data name="Analysis_OpenLogInspector"><value>Open Online Log Inspector</value></data>
+  <data name="Analysis_IssuesFound"><value>{0} of {1} not configured as recommended.</value></data>
+  <data name="Analysis_AllGoodCount"><value>All {0} settings configured correctly.</value></data>
+  <data name="Analysis_DetailsInLog"><value>Details in the log.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Context menu (FeaturesPage.xaml.cs)        -->
   <!-- ============================================================ -->
-  <data name="Context_Analyze"><value>Analyze</value></data>
-  <data name="Context_Fix"><value>Fix</value></data>
+  <data name="Context_Analyze"><value>Inspect</value></data>
+  <data name="Context_Fix"><value>Apply</value></data>
   <data name="Context_Restore"><value>Restore</value></data>
   <data name="Context_Help"><value>Help</value></data>
 
@@ -355,7 +349,6 @@ Please check one or more features/plugins in the tree first.</value></data>
 Any previous tweaks for those items may be reverted.
 
 Do you want to continue?</value></data>
-  <data name="Restore_Done"><value>Restored {0} selected item(s).</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Profile actions (FeaturesPage.xaml.cs)     -->
@@ -417,19 +410,17 @@ Do you want to continue?</value></data>
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Donation dialog (DonationHelper.cs)        -->
   <!-- ============================================================ -->
-  <data name="Donation_Title"><value>Support Winslop &#x2764;</value></data>
-  <data name="Donation_Body"><value>If Winslop saved you time, consider supporting its future. It stays free and anti-slop thanks to supporters like you.</value></data>
+  <data name="Donation_Title"><value>Support Winslopr &#x2764;</value></data>
+  <data name="Donation_Body"><value>If Winslopr saved you time, consider supporting its future. It stays free and anti-slop thanks to supporters like you.</value></data>
   <data name="Donation_AlreadyDonated"><value>I already donated, don't show again</value></data>
   <data name="Donation_Donate"><value>Donate</value></data>
   <data name="Donation_MaybeLater"><value>Maybe later</value></data>
 
   <!-- XAML: Migration InfoBar (MainWindow.xaml)                      -->
   <!-- ============================================================ -->
-  <data name="InfoMigration.Title"><value>New look, new chapter — does Winslop need a new name?</value></data>
-  <data name="InfoMigration.Message"><value>Winslop has a new face — should it get a new name too? With the move to WinUI 3 the app has changed. Tell us what you think.</value></data>
+  <data name="InfoMigration.Title"><value>New look, new chapter — does Winslopr need a new name?</value></data>
+  <data name="InfoMigration.Message"><value>Winslopr has a new face — should it get a new name too? With the move to WinUI 3 the app has changed. Tell us what you think.</value></data>
   <data name="InfoMigration_Vote.Content"><value>Cast your vote →</value></data>
-  <data name="LoggerEmpty_Title.Text"><value>No results yet</value></data>
-  <data name="LoggerEmpty_Hint.Text"><value>Click "Inspect system" to scan your Windows configuration.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Plugins status (PluginsDialog.xaml.cs)     -->
@@ -450,7 +441,7 @@ Do you want to continue?</value></data>
   <!-- C# ResourceLoader: Language switcher                          -->
   <!-- ============================================================ -->
   <data name="Language_RestartTitle"><value>Language Changed</value></data>
-  <data name="Language_RestartRequired"><value>Please restart Winslop for the language change to take effect.</value></data>
+  <data name="Language_RestartRequired"><value>Please restart Winslopr for the language change to take effect.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Common strings                             -->
