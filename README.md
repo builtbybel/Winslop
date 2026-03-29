@@ -23,7 +23,7 @@ See what Winslop handles and what needs extra tools.
 
 ---
 
-# winslop
+# winslopr
 
 ```text
 Windows
