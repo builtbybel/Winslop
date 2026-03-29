@@ -49,13 +49,12 @@
   <data name="NavApps.Text"><value>Apps</value></data>
   <data name="NavInstall.Text"><value>Instalar</value></data>
   <data name="NavTools.Text"><value>Herramientas</value></data>
-  <data name="NavSupport.Text"><value>Apoyo</value></data>
   <data name="NavSettings.Text"><value>Ajustes</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: MainWindow — Support flyout                      -->
   <!-- ============================================================ -->
-  <data name="MenuShare.Text"><value>Comparte Winslop</value></data>
+  <data name="MenuShare.Text"><value>Comparte Winslopr</value></data>
   <data name="MenuKofi.Text"><value>Invítame a un café en Ko-fi</value></data>
   <data name="MenuPaypal.Text"><value>Haz una donación con PayPal</value></data>
 
@@ -74,19 +73,17 @@
   <data name="Settings_ThemeDark"><value>Oscuro</value></data>
   
   <data name="Settings_Extensions.Text"><value>Extensiones</value></data>
-  <data name="Settings_ExtensionsSubtext.Text"><value>Administra plugins nativos y herramientas independientes.</value></data>
   <data name="Settings_ToolScripts.Text"><value>Extensiones</value></data>
   <data name="Settings_ToolScriptsDescription.Text"><value>Scripts independientes que se abren y ejecutan desde la página Herramientas.</value></data>
   <data name="Settings_OpenToolsPage.Text"><value>Abrir página Herramientas</value></data>
   <data name="Settings_Plugins.Text"><value>Plugins</value></data>
   <data name="Settings_PluginsDescription.Text"><value>Complementos nativos que se integran con las Funciones de la página de Inicio.</value></data>
   <data name="Settings_ManagePlugins.Text"><value>Administrar complementos</value></data>
-  <data name="Settings_Legacy.Text"><value>Winslop Legacy</value></data>
-  <data name="Settings_LegacyDescription.Text"><value>La anterior versión WinForms de Winslop.</value></data>
+  <data name="Settings_Legacy.Text"><value>Winslopr Legacy</value></data>
+  <data name="Settings_LegacyDescription.Text"><value>La anterior versión WinForms de Winslopr.</value></data>
   <data name="Settings_LaunchLegacy.Text"><value>Ejecutar Legacy</value></data>  
   <data name="Settings_CompatOk"><value>Totalmente compatible</value></data>
   <data name="Settings_CompatWarn"><value>Compatibilidad limitada</value></data>
-  <data name="Settings_About.Text"><value>Acerca de este programa</value></data>
   <data name="Settings_CheckUpdates.Text"><value>Buscar actualizaciones</value></data>
   <data name="Settings_Feedback.Text"><value>Envíanos comentarios</value></data>
   <data name="MenuHelp.Text"><value>Ayuda</value></data>
@@ -98,8 +95,6 @@
   <data name="MenuToggle.Text"><value>Activar/Desactivar Todo</value></data>
   <data name="MenuUndo.Text"><value>Deshacer últimos cambios</value></data>
   <data name="MenuRefresh.Text"><value>Actualizar página</value></data>
-  <data name="MenuExport.Text"><value>Exportar selección...</value></data>
-  <data name="MenuImport.Text"><value>Importar desde archivo...</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: MainWindow — Log actions submenu                  -->
@@ -123,12 +118,11 @@
   <!-- XAML x:Uid: FeaturesPage                                      -->
   <!-- ============================================================ -->
   <data name="ComboProfiles.PlaceholderText"><value>&lt;Seleccionar perfil...&gt;</value></data>
-  <data name="ChkIssuesOnly.Content"><value>Solo problemas</value></data>
+  <data name="ChkIssuesOnly.Content"><value>Muestra solo elementos mal configurados</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: AppsPage                                          -->
   <!-- ============================================================ -->
-  <data name="ComboDisplayMode.PlaceholderText"><value>Seleccionar modo de análisis...</value></data>
 
   <!-- ============================================================ -->
   <!-- XAML x:Uid: InstallPage                                       -->
@@ -272,7 +266,7 @@
   <!-- ============================================================ -->
   <data name="Feature_AlwaysShowTrayIcons"><value>Mostrar siempre todos los iconos de la bandeja del sistema</value></data>
   <data name="Feature_CleanTaskbar"><value>Limpiar barra de tareas</value></data>
-  <data name="Feature_DisableNewsAndInterests"><value>Deshabilitar Noticias e intereses</value></data>
+  <data name="Feature_DisableNewsAndInterests"><value>Deshabilitar noticias e intereses</value></data>
   <data name="Feature_DisableWidgets"><value>Deshabilitar Widgets</value></data>
   <data name="Feature_RemoveMeetNowButton"><value>Eliminar botón 'Reunirse ahora' de la bandeja del sistema</value></data>
   <data name="Feature_SearchboxTaskbarMode"><value>Ocultar cuadro de búsqueda en la barra de tareas</value></data>
@@ -331,9 +325,9 @@
   <data name="Analysis_Plugins"><value>Complementos</value></data>
   <data name="Analysis_Total"><value>Total</value></data>
   <data name="Analysis_Issues"><value>problema(s)</value></data>
-  <data name="Analysis_IssuesFound"><value>{0} problema(s) encontrado(s) - revise el registro antes de aplicar correcciones.</value></data>
-  <data name="Analysis_AllGood"><value>¡Todo está correcto!</value></data>
-  <data name="Analysis_OpenLogInspector"><value>Abrir inspector de registro en línea</value></data>
+  <data name="Analysis_IssuesFound"><value>{0} de {1} no configuradas de la forma recomendada.</value></data>
+  <data name="Analysis_AllGoodCount"><value>Todos los {0} ajustes configurados correctamente.</value></data>
+  <data name="Analysis_DetailsInLog"><value>Detalles disponibles en el registro.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Context menu (FeaturesPage.xaml.cs)        -->
@@ -355,7 +349,6 @@ Por favor, marque una o más funciones/complementos en el desplegable primero.</
 Cualquier ajuste previo para esos elementos puede ser revertido.
 
 ¿Desea continuar?</value></data>
-  <data name="Restore_Done"><value>Se restauraron {0} elemento(s) seleccionado(s).</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Profile actions (FeaturesPage.xaml.cs)     -->
@@ -365,7 +358,7 @@ Cualquier ajuste previo para esos elementos puede ser revertido.
   <data name="Profile_OpenFolder"><value>Abrir carpeta de perfiles...</value></data>
   <data name="Profile_ExportedTo"><value>Selección exportada a: {0}</value></data>
   <data name="Profile_ImportedFrom"><value>Se importaron {0} elemento(s) desde: {1}</value></data>
-  <data name="Profile_Loaded"><value>Perfil '{0}' cargado({1} elemento(s) seleccionado).</value></data>
+  <data name="Profile_Loaded"><value>Perfil '{0}' cargado({1} elemento(s) seleccionado(s)).</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Scan modes (AppsPage.xaml.cs)              -->
@@ -417,19 +410,17 @@ Cualquier ajuste previo para esos elementos puede ser revertido.
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Donation dialog (DonationHelper.cs)        -->
   <!-- ============================================================ -->
-  <data name="Donation_Title"><value>Apoya a Winslop &#x2764;</value></data>
-  <data name="Donation_Body"><value>Si Winslop te ahorró tiempo, por favor considera apoyar su futuro. Sigue siendo gratuito y sin bloat gracias a personas como tú.</value></data>
+  <data name="Donation_Title"><value>Apoya a Winslopr &#x2764;</value></data>
+  <data name="Donation_Body"><value>Si Winslopr te ahorró tiempo, por favor considera apoyar su futuro. Sigue siendo gratuito y sin bloat gracias a personas como tú.</value></data>
   <data name="Donation_AlreadyDonated"><value>Ya he donado, no volver a mostrar</value></data>
   <data name="Donation_Donate"><value>Donar</value></data>
   <data name="Donation_MaybeLater"><value>Quizás mas tarde</value></data>
 
   <!-- XAML: Migration InfoBar (MainWindow.xaml)                      -->
   <!-- ============================================================ -->
-  <data name="InfoMigration.Title"><value>Nueva imagen, nuevo capítulo — ¿Necesita Winslop un nuevo nombre?</value></data>
-  <data name="InfoMigration.Message"><value>Winslop tiene un nuevo diseño — ¿merecería también un nuevo nombre? Con el salto a WinUI 3, la app ha cambiado. Dinos qué opinas.</value></data>
+  <data name="InfoMigration.Title"><value>Nueva imagen, nuevo capítulo — ¿Necesita Winslopr un nuevo nombre?</value></data>
+  <data name="InfoMigration.Message"><value>Winslopr tiene un nuevo diseño — ¿merecería también un nuevo nombre? Con el salto a WinUI 3, la app ha cambiado. Dinos qué opinas.</value></data>
   <data name="InfoMigration_Vote.Content"><value>¡Deja tu voto!→</value></data>
-  <data name="LoggerEmpty_Title.Text"><value>Sin resultados aún</value></data>
-  <data name="LoggerEmpty_Hint.Text"><value>Haz clic en "Examinar sistema" para analizar la configuración de tu Windows.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Plugins status (PluginsDialog.xaml.cs)     -->
@@ -450,7 +441,7 @@ Cualquier ajuste previo para esos elementos puede ser revertido.
   <!-- C# ResourceLoader: Language switcher                          -->
   <!-- ============================================================ -->
   <data name="Language_RestartTitle"><value>Idioma cambiado</value></data>
-  <data name="Language_RestartRequired"><value>Por favor, reinicia Winslop para que el cambio de idioma tenga efecto.</value></data>
+  <data name="Language_RestartRequired"><value>Por favor, reinicia Winslopr para que el cambio de idioma tenga efecto.</value></data>
 
   <!-- ============================================================ -->
   <!-- C# ResourceLoader: Common strings                             -->
